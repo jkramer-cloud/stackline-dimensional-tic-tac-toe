@@ -65,3 +65,32 @@ Alternatively, open `index.html` in a modern browser to play locally. No separat
 The scene uses a custom interactive Canvas renderer with rotatable 3D-like orthographic projection and transparent layered grids, not a GPU 3D engine. This makes the game lightweight on school Chromebooks. Win detection enumerates all mathematically valid straight directions over 2, 3, or 4 coordinates and checks the exact positions placed. The 5×5×5×5 mode contains **625 playable positions**, organized as **25 physical boards**.
 
 **Version:** 1.0 · Designed for the Naches Learning Hub.
+
+## Version 2.0 — Computer opponents and Spatial Reasoning Lab
+
+The previous local pass-and-play game is preserved, but players can now choose a **Computer opponent** from the Players & Pieces panel:
+
+- **Explorer** — makes random legal moves. A useful low-pressure starter.
+- **Strategist** — takes immediate wins, blocks immediate losses, and otherwise evaluates promising lines (with some variation).
+- **Master** — takes immediate wins and blocks, then scores open lines across every coordinate to choose a strategic position. It is a **rule-based opponent, not an unbeatable AI**.
+
+Computer matches are **one student versus Player 2 (computer)**. Local multiplayer still supports 2–3 Classic, 2–4 Stacked, or 2–5 Hyper players. All local players can customize colors, shapes and names; the computer uses the second player's piece appearance. Random First can let the computer open. Undo backs up both the computer's and student's most recent moves when possible. The computer never needs an API or network service.
+
+### Spatial Reasoning Lab
+
+Click **Reasoning Lab** above the 3D board for automatically generated puzzles that use the exact geometric lines available in the selected board mode:
+
+1. **Finish the line:** find the missing square in a valid 3-, 4-, or 5-piece line.
+2. **Block the line:** stop an opponent's immediate win.
+3. **Straight or bent?** determine whether the displayed pieces form one genuinely straight line.
+4. **Count changing axes:** inspect a highlighted line and identify how many coordinates change.
+
+Set **Explorer**, **Standard**, or **Expert** puzzle difficulty to emphasize simple or multi-axis lines. Use the same rotating transparent 3D board and precise level/tower selection grid as the main game. The **Hint** button provides guidance; correct and incorrect answers provide explanations. Solved and first-try counts are saved separately **by board format** in the browser. Your multiplayer board is backed up in memory while you solve puzzles and restored when you leave the Lab; refreshing during a puzzle restores the most recently saved match instead. No puzzle data is sent to a server.
+
+### Testing
+
+Static JavaScript syntax checks and deterministic geometry tests cover all 8, 76 and 888 winning lines, 500 generated puzzles per board type, and computer immediate-win/block decisions for each mode. Browser interaction and display should also be checked after publishing on your school's Chromebook configuration.
+
+### Updating an existing GitHub repository
+
+Upload the new `index.html` and `README.md` files to the repository root, replacing the old versions. The GitHub Pages URL does not change. The original `stackline_game_v1` storage key is retained for backward-compatible saves; new preference and challenge stats use separate local storage keys.
