@@ -16,15 +16,26 @@ We cannot draw four independent spatial axes directly in three-dimensional space
 
 This is a game with *five in a row* across a four-axis grid; the row length and the number of mathematical dimensions are different quantities. The underlying game accepts all horizontal, vertical, within-board diagonal, cross-level diagonal, cross-tower diagonal, and all-axis diagonal wins. Lines that bend or skip squares are not wins.
 
+## What’s new in version 2.1 — Scene navigation and camera tracking
+
+The top mode bar now uses embossed **2D / 3D / 4D** typography. These labels describe the number of independent coordinates, not the number of pieces needed to win.
+
+- **In-scene L1–L4 / L1–L5 height badges:** Click beside any layer of the 3D scene to select that level. The same buttons remain in the sidebar for keyboard access.
+- **In-scene T1–T5 tower badges:** In four-axis Hyper mode, click the label above a tower to select it directly.
+- **Real tower tracking:** A tower always keeps its own place in the larger world. Selecting a tower pans and zooms the camera toward that specific tower, rather than making every selected tower collapse into the middle.
+- **Focused overview control:** Switching towers enters focus mode automatically. **Show all towers** restores the complete 5-tower view, while keeping the selected tower highlighted. Neighboring towers are dimmed when focused.
+- **Small screens:** The overview prioritizes clickable tower badges; choose a tower to reveal its L1–L5 height controls without overlapping labels. All sidebar controls remain available.
+- **Safety against unintended moves:** In-scene navigation badges are hit-tested before the playable cells. Selecting a badge changes the view, not the board position or turn count.
+
 ## Controls
 
 - **Click/tap a highlighted tile** in the rotatable 3D view to place a piece.
 - **Click/tap a square in the 2D Active Board grid** for precise placement when towers overlap visually.
 - **Drag** on the large game board to orbit the scene. **Mouse wheel** or the **Zoom** buttons zoom in and out.
 - **View, Top, Side** select useful camera angles.
-- **Height / Level tabs** choose which of the stacked boards is active.
-- **Tower tabs** choose a fourth-axis coordinate in Hyper mode.
-- **Focus Tower** isolates one Hyper tower for easier inspection; toggle again to see all five.
+- **Height / Level tabs**, or the **L# badges beside each scene level**, choose which stacked board is active.
+- **Tower tabs**, or the **T# badges above each Hyper tower**, choose a fourth-axis coordinate.
+- **Focus selected tower** pans/zooms the camera to that specific tower, while other towers stay faintly visible for spatial context. **Show all towers** returns to the full overview.
 - **Threat Lens** highlights immediately winning empty positions for the current player on the selected board.
 - **Undo** reverses the most recent move.
 - **Up / Down arrows** change active height; **[ / ]** change the tower in Hyper mode.
@@ -64,7 +75,7 @@ Alternatively, open `index.html` in a modern browser to play locally. No separat
 
 The scene uses a custom interactive Canvas renderer with rotatable 3D-like orthographic projection and transparent layered grids, not a GPU 3D engine. This makes the game lightweight on school Chromebooks. Win detection enumerates all mathematically valid straight directions over 2, 3, or 4 coordinates and checks the exact positions placed. The 5×5×5×5 mode contains **625 playable positions**, organized as **25 physical boards**.
 
-**Version:** 1.0 · Designed for the Naches Learning Hub.
+**Current version:** 2.1 · Designed for the Naches Learning Hub.
 
 ## Version 2.0 — Computer opponents and Spatial Reasoning Lab
 
